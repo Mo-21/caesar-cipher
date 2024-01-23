@@ -15,15 +15,19 @@ function encrypt(text, shift) {
   let cipher = "";
   for (let i = 0; i < text.length; i++) {
     const letter = text.charAt(i);
-    const position = alphabet.indexOf(letter);
-    const new_position = position + parseInt(shift);
-    let new_letter = "";
-    if (new_position < alphabet.length) {
-      new_letter = alphabet[new_position];
+    if (letter === " ") {
+      cipher += letter;
     } else {
-      new_letter = alphabet[new_position - alphabet.length];
+      const position = alphabet.indexOf(letter);
+      const new_position = position + parseInt(shift);
+      let new_letter = "";
+      if (new_position < alphabet.length) {
+        new_letter = alphabet[new_position];
+      } else {
+        new_letter = alphabet[new_position - alphabet.length];
+      }
+      cipher += new_letter;
     }
-    cipher += new_letter;
   }
 
   encrypted_text.value = cipher;
