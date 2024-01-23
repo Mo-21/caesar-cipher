@@ -11,8 +11,12 @@
     <div class="container">
       <div class="header">Caesar Cipher</div>
       <div class="table">
-        <textarea type="text" class="input"></textarea>
-        <textarea type="text" class="input"></textarea>
+        <div class="shift-input">
+          <label for="shift">Shift amount:</label>
+          <input type="number" class="shift-amount" />
+        </div>
+        <textarea type="text" class="encrypted_text"></textarea>
+        <textarea type="text" class="decrypted_text"></textarea>
         <button class="submit">Encode / Decode</button>
       </div>
     </div>
