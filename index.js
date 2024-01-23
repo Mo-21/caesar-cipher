@@ -5,7 +5,6 @@ const button = document.querySelector("button");
 
 //prettier-ignore
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '[', ']', '{', '}', ';', ':', ',', '.', '/', '?', '<', '>', '|'];
-
 button.addEventListener("click", () => {
   if (!decrypted_text.value) {
     decrypt(encrypted_text.value, shift_amount.value ? shift_amount.value : 0);
@@ -13,10 +12,16 @@ button.addEventListener("click", () => {
     encrypt(decrypted_text.value, shift_amount.value ? shift_amount.value : 0);
   } else if (!decrypted_text.value && !encrypted_text.value) {
     return;
+  } else if (decrypted_text.value && encrypted_text.value) {
+    decrypted_text.value = "";
+    encrypted_text.value = "";
   }
 });
 
+if (decrypted_text.value && encrypted_text.value) button.innerText = "Clear";
+
 function encrypt(text, shift) {
+  if (parseInt(shift) > 53) return;
   let cipher = "";
   for (let i = 0; i < text.length; i++) {
     const letter = text.charAt(i);
@@ -39,6 +44,7 @@ function encrypt(text, shift) {
 }
 
 function decrypt(cipher, shift) {
+  if (parseInt(shift) > 53) return;
   let plain_text = "";
   for (let i = 0; i < cipher.length; i++) {
     const letter = cipher.charAt(i);
