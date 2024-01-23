@@ -1,6 +1,19 @@
 body {
   overflow: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(./man.jpg);
+  background-repeat: repeat-x;
+  background-position: 20px;
+}
+
+.credits {
+  display: flex;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {
@@ -11,7 +24,6 @@ body {
 div.header {
   text-align: center;
   font-size: 3rem;
-  color: crimson;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -36,10 +48,6 @@ div.header {
 
 input.shift-amount {
   flex-grow: 1;
-}
-
-label {
-  color: crimson;
 }
 
 textarea {
